@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    public Optional<User> findByEmail(String emailId);
+    public Optional<User> findByEmailId(String emailId);
 
     public Optional<User> findByUsername(String userName);
     // thực hiện truy vấn vào CSDL

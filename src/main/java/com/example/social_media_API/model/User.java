@@ -49,4 +49,7 @@ public class User {
 
     @OneToMany(mappedBy = "User",cascade = CascadeType.ALL)
     List<UserDto> Followings = new ArrayList<>();
+
+    @ManyToMany
+    private List<Post> savedPost=new ArrayList<>();
 }

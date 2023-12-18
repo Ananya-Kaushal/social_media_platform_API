@@ -28,7 +28,7 @@ public class UserService {
 
         System.out.println("registered user ------ ");
 
-        Optional<User> isEmailExist = repo.findByEmail(user.getEmailId());
+        Optional<User> isEmailExist = repo.findByEmailId(user.getEmailId());
 
         if (isEmailExist.isPresent()) {
             throw new UserException("Email Already Exist");
@@ -67,6 +67,17 @@ public class UserService {
         }
 
         throw new UserException("user not found with userid :" + userId);
+    }
+
+    public User findUserByEmailId(String emailId) throws UserException {
+
+        Optional<User> opt = repo.findByEmailId(emailId);
+
+        if (opt.isPresent()) {
+            return opt.get();
+        }
+
+        throw new UserException("user not found with userid :" + emailId);
     }
 
 
